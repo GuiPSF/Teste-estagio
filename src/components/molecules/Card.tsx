@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../atoms/Button'
 import styled from 'styled-components'
+import Modal from './Modal';
+import { title } from 'process';
 
 const SCard = styled.div `
     background-color: white;
@@ -9,14 +11,25 @@ const SCard = styled.div `
     border-radius: 20px;
     margin: auto;
     box-shadow: 10px 10px 10px grey;
+    color: black;
 `
+var index = 1;
 
-const Card = () => {
+interface CardProps {
+  title: string;
+  content: string;
+}
+
+const Card: React.FC<CardProps> = ({ title, content}) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <SCard>
-        <Button kind='primary' size='1' state='enabled'/>
-        <Button kind='secondary' size='2' state='enabled'/>
-        <Button kind='tertiary'size='3' state='enabled'/>
+      <h3>Este é o {index}º card</h3>
+        <Button kind='primary' size='small' state='enabled' onClick={() => setIsModalOpen(true)}/>
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <h2>{title}</h2>
+          <p>{content}</p>
+        </Modal>
     </SCard>
   )
 }

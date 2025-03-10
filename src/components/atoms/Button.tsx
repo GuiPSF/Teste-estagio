@@ -9,7 +9,7 @@ const SButton = styled.button <{ $kind: string; $size: string; $state: string }>
     margin: 0 1em;
     cursor: pointer;
     padding: ${({ $size }) =>
-    $size === "1" ? "0.25em 1em" : $size === "2" ? "0.5em 1.5em" : "0.75em 2em"};
+    $size === "small" ? "0.25em 1em" : $size === "medium" ? "0.5em 1.5em" : "0.75em 2em"};
   cursor: pointer;
 
 
@@ -74,16 +74,15 @@ const SButton = styled.button <{ $kind: string; $size: string; $state: string }>
 
 interface Props {
     kind?: 'primary' | 'secondary' | 'tertiary';
-    size?: '1' | '2' | '3';
+    size?: 'small' | 'medium' | 'large';
     state?: 'enabled' | 'disabled';
+    onClick: () => void;
 }
 
-const Button = ({ kind = "primary", size = "1", state="enabled"}: Props) => {
-
-
+const Button = ({ kind = "primary", size = "small", state="enabled", onClick}: Props) => {
     return(
         <>
-            <SButton $kind={kind} $size={size} $state={state}> Normal Button </SButton>
+            <SButton $kind={kind} $size={size} $state={state} onClick={onClick}> Open Modal </SButton>
         </>
     )
 }
