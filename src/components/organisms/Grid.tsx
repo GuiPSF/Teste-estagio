@@ -13,14 +13,18 @@ const GridContainer = styled.div`
 const Grid = () => {
 
   const cardsData = [
-    {title: "card1", content: "card 1"},
-    {title: "card2", content: "card 2"}
+    {title: "Card 1", subtitle: "card1", content: "Este é o card 1, os botões podem ser configurados nas propriedades do botão no arquivo Card.tsx"},
+    {title: "Card 2", subtitle: "card2", content: "Este é o card 2, os botões podem ser configurados nas propriedades do botão no arquivo Card.tsx"},
+    {title: "Card 3", subtitle: "card3", content: "Este é o card 3, os botões podem ser configurados nas propriedades do botão no arquivo Card.tsx"},
+    {title: "Card 4", subtitle: "card4", content: "Este é o card 4, os botões podem ser configurados nas propriedades do botão no arquivo Card.tsx"},
+    {title: "Card 5", subtitle: "card5", content: "Este é o card 5, os botões podem ser configurados nas propriedades do botão no arquivo Card.tsx"},
+    {title: "Card 6", subtitle: "card6", content: "Este é o card 6, os botões podem ser configurados nas propriedades do botão no arquivo Card.tsx"},
   ]
 
   return (
     <GridContainer>
         {cardsData.map((card, index) => (
-          <Card key={index} title={card.title} content={card.content} />
+          <Card key={index} title={card.title} subtitle={card.subtitle} content={card.content} />
         ))}
     </GridContainer>
   )

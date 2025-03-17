@@ -17,17 +17,21 @@ var index = 1;
 
 interface CardProps {
   title: string;
+  subtitle: string;
   content: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, content}) => {
+const Card: React.FC<CardProps> = ({  title, subtitle,  content}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <SCard>
-      <h3>Este é o {index}º card</h3>
-        <Button kind='primary' size='small' state='enabled' onClick={() => setIsModalOpen(true)}/>
+      <h3>Este é um card</h3>
+      <hr />
+      <br />
+        <Button onClick={() => setIsModalOpen(true)}/>
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          <h2>{title}</h2>
+          <h1>{title}</h1>
+          <h2>{subtitle}</h2>
           <p>{content}</p>
         </Modal>
     </SCard>
